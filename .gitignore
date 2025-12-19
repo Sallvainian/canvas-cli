@@ -1,1 +1,21 @@
+# Build artifacts
 /target
+
+# IDE / Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# AI assistants
+.claude/
+.mcp.json
+.opencode/
+
+# BMAD workflow
+_bmad/
+
+# OS files
+.DS_Store
+Thumbs.db
