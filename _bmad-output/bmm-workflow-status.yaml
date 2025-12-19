@@ -24,7 +24,7 @@ workflow_path: "paths/method-brownfield.yaml"
 workflow_status:
   # Prerequisite - Documentation
   document-project: "_bmad-output/architecture.md"
-  generate-project-context: in-progress  # AI agent coding rules
+  generate-project-context: "_bmad-output/project-context.md"
 
   # Phase 0 - Discovery (Optional)
   brainstorm-project: optional
