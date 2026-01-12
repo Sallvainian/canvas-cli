@@ -7,20 +7,22 @@ on:
   release:
     types: [created]
   workflow_dispatch:
-
 permissions:
   id-token: write
   contents: read
 jobs:
-  publish-npm:
+  build:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      id-token: write
+      contents: read
     steps:
-      - uses: actions/checkout@v4
-      - uses: oven-sh/setup-bun@v2
+      - uses: actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f # v6.1.0
         with:
-          bun-version: latest
-          registries: https://registry.npmjs.org/
-      - run: bun ci
-      - run: bun publish --tolerate-republish --production --verbose
-        env:
-          NPM_CONFIG_TOKEN: ${{secrets.npm_token}}
+          registry-url: "https://registry.npmjs.org"
+      - uses: oven-sh/setup-bun@735343b667d3e6f658f44d0eca948eb6282f2b76 # v2.0.2
+
+      - run: bun install --frozen-lockfile
+      - run: npm run build
+      - run: npm publish --provenance
