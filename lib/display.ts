@@ -1004,46 +1004,44 @@ export function parseHtmlContent(html: string): string {
 
   let text = html;
 
-  // Remove style and script tags with content - repeat until no more matches
+  // Remove tags and handle formatting - repeat until no more matches
   // This prevents attacks like <scr<script>ipt> which would leave <script> after one pass
   let prevText = "";
   while (prevText !== text) {
     prevText = text;
     text = text
+      // Remove style and script tags with their content entirely
       .replace(/<style\b[^>]*>[\s\S]*?<\/style\s*[^>]*>/gi, "")
-      .replace(/<script\b[^>]*>[\s\S]*?<\/script\s*[^>]*>/gi, "");
+      .replace(/<script\b[^>]*>[\s\S]*?<\/script\s*[^>]*>/gi, "")
+      // Convert links to inline blue text with URL
+      .replace(
+        /<a.*?href="(.*?)[?"].*?>(.*?)<\/a.*?>/gi,
+        (_match, url, linkText) => {
+          return chalk.blue(`${linkText} (${url})`);
+        },
+      )
+      // Replace <br> with newlines
+      .replace(/<br\s*\/?>/gi, "\n")
+      // Replace </p>, </div>, </li>, </h*> with newlines
+      .replace(/<\/(p|div|li|h[1-6])\s*[^>]*>/gi, "\n")
+      // Replace <li> with bullet
+      .replace(/<li[^>]*>/gi, "• ")
+      // Handle headers
+      .replace(/<h[1-6][^>]*>/gi, "\n")
+      // Remove all other remaining tags
+      .replace(/<\/?[a-z][^>]*>/gi, "");
   }
-
-  // Now do standard HTML to text conversion
-  text = text
-    // Convert links to inline blue text with URL
-    .replace(
-      /<a.*?href="(.*?)[?"].*?>(.*?)<\/a.*?>/gi,
-      (_match, url, linkText) => {
-        return chalk.blue(`${linkText} (${url})`);
-      },
-    )
-    // Replace <br> with newlines
-    .replace(/<br\s*\/?>/gi, "\n")
-    // Replace </p>, </div>, </li>, </h*> with newlines
-    .replace(/<\/(p|div|li|h[1-6])\s*[^>]*>/gi, "\n")
-    // Replace <li> with bullet
-    .replace(/<li[^>]*>/gi, "• ")
-    // Handle headers
-    .replace(/<h[1-6][^>]*>/gi, "\n")
-    // Remove remaining tags (handles malformed tags with spaces/attributes)
-    .replace(/<\/?[a-z][^>]*>/gi, "");
 
   // Decode HTML entities in a safe order
   // First decode numeric entities
   text = text
     .replace(/&#(\d+);/g, (_, num) => {
       const code = parseInt(num, 10);
-      return code >= 0 && code <= 0x10ffff ? String.fromCharCode(code) : _;
+      return code >= 0 && code <= 0x10ffff ? String.fromCodePoint(code) : _;
     })
     .replace(/&#x([0-9a-f]+);/gi, (_, hex) => {
       const code = parseInt(hex, 16);
-      return code >= 0 && code <= 0x10ffff ? String.fromCharCode(code) : _;
+      return code >= 0 && code <= 0x10ffff ? String.fromCodePoint(code) : _;
     });
 
   // Then decode named entities (only most common ones to avoid issues)
