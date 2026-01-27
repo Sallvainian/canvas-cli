@@ -4,16 +4,16 @@
 
 ## Project Classification
 
-| Attribute | Value |
-|-----------|-------|
-| **Project Name** | Canvas-CLI (canvaslms-cli) |
-| **Repository Type** | Monolith |
-| **Project Type** | CLI (Command-Line Interface Tool) |
-| **Primary Language** | TypeScript |
-| **Runtime** | Bun (Node.js compatible) |
-| **Package Manager** | Bun |
-| **Node Version** | >=14.0.0 |
-| **License** | MIT |
+| Attribute            | Value                             |
+| -------------------- | --------------------------------- |
+| **Project Name**     | Canvas-CLI (canvaslms-cli)        |
+| **Repository Type**  | Monolith                          |
+| **Project Type**     | CLI (Command-Line Interface Tool) |
+| **Primary Language** | TypeScript                        |
+| **Runtime**          | Bun (Node.js compatible)          |
+| **Package Manager**  | Bun                               |
+| **Node Version**     | >=14.0.0                          |
+| **License**          | MIT                               |
 
 ## Purpose
 
@@ -39,11 +39,11 @@ A modern, user-friendly command-line interface for Canvas LMS. Enables users to 
 
 ## Entry Points
 
-| Entry Point | Description |
-|-------------|-------------|
-| `index.ts` | Main CLI entry point (development) |
-| `src/index.ts` | Distribution entry point |
-| `dist/src/index.js` | Compiled binary entry |
+| Entry Point         | Description                        |
+| ------------------- | ---------------------------------- |
+| `index.ts`          | Main CLI entry point (development) |
+| `src/index.ts`      | Distribution entry point           |
+| `dist/src/index.js` | Compiled binary entry              |
 
 ## Binary Commands
 

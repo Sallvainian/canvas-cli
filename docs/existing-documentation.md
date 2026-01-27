@@ -4,31 +4,36 @@
 
 ## Documentation Files Found
 
-| File | Type | Location | Description |
-|------|------|----------|-------------|
-| README.md | Main README | `/README.md` | Comprehensive usage guide with features, installation, setup, and all 15 commands |
-| CHANGELOG.md | Changelog | `/CHANGELOG.md` | Version history and release notes |
-| scripts/README.md | Scripts Docs | `/scripts/README.md` | Documentation for version bump script |
-| LICENSE | License | `/LICENSE` | MIT License |
+| File              | Type         | Location             | Description                                                                       |
+| ----------------- | ------------ | -------------------- | --------------------------------------------------------------------------------- |
+| README.md         | Main README  | `/README.md`         | Comprehensive usage guide with features, installation, setup, and all 15 commands |
+| CHANGELOG.md      | Changelog    | `/CHANGELOG.md`      | Version history and release notes                                                 |
+| scripts/README.md | Scripts Docs | `/scripts/README.md` | Documentation for version bump script                                             |
+| LICENSE           | License      | `/LICENSE`           | MIT License                                                                       |
 
 ## README.md Summary
 
 The main README covers:
 
 ### Installation
+
 - Global npm installation: `npm install -g canvaslms-cli`
 
 ### Setup Process
+
 1. Getting Canvas API Token (from Canvas Account → Settings → Approved Integrations)
 2. Running `canvas config setup`
 3. Entering Canvas domain and API token
 
 ### Configuration Storage
+
 - Config file: `~/.canvaslms-cli-config.json`
 - Settings: domain, token, truncate mode
 
 ### Commands Documented
+
 All 15 commands with full usage examples:
+
 - `config` - Configuration management
 - `list` - List courses (starred/all)
 - `star/unstar` - Manage favorite courses
@@ -47,6 +52,7 @@ All 15 commands with full usage examples:
 - `profile` - Display user profile
 
 ### Visual Assets
+
 - `assets/assignment_selection.png` - Assignment submission interface
 - `assets/interactive.png` - Interactive files selection
 - `assets/grades_view.png` - Detailed grades view

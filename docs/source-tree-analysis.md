@@ -99,6 +99,7 @@ Canvas-CLI/
 Contains the main CLI program that registers all commands with Commander.js.
 
 **Key File:** `src/index.ts`
+
 - Imports all command handlers
 - Defines command structure with options
 - Wraps commands with `requireConfig()` for auth validation
@@ -107,51 +108,54 @@ Contains the main CLI program that registers all commands with Commander.js.
 
 Each file exports a single command handler function:
 
-| File | Export | Purpose |
-|------|--------|---------|
-| `list.ts` | `listCourses()` | List enrolled/starred courses |
-| `config.ts` | `showConfig()`, `setupConfig()`, etc. | Config management |
-| `assignments.ts` | `listAssignments()` | Assignment listing with filters |
-| `grades.ts` | `showGrades()` | Grade display and breakdown |
-| `gpa.ts` | `calculateOverallGPA()`, `calculateWhatIfGrade()` | GPA calculations |
-| `announcements.ts` | `showAnnouncements()` | Announcement viewing |
-| `calendar.ts` | `showCalendar()` | Due date calendar |
-| `modules.ts` | `showModules()` | Module browser |
-| `todo.ts` | `showTodo()` | Todo items |
-| `files.ts` | `showFiles()` | File browser |
-| `download.ts` | `bulkDownload()` | Bulk file download |
-| `submit.ts` | `submitAssignment()` | Assignment submission |
-| `groups.ts` | `showGroups()` | Group memberships |
-| `star.ts` | `starCourse()`, `unstarCourse()` | Favorites management |
-| `profile.ts` | `showProfile()` | User profile |
+| File               | Export                                            | Purpose                         |
+| ------------------ | ------------------------------------------------- | ------------------------------- |
+| `list.ts`          | `listCourses()`                                   | List enrolled/starred courses   |
+| `config.ts`        | `showConfig()`, `setupConfig()`, etc.             | Config management               |
+| `assignments.ts`   | `listAssignments()`                               | Assignment listing with filters |
+| `grades.ts`        | `showGrades()`                                    | Grade display and breakdown     |
+| `gpa.ts`           | `calculateOverallGPA()`, `calculateWhatIfGrade()` | GPA calculations                |
+| `announcements.ts` | `showAnnouncements()`                             | Announcement viewing            |
+| `calendar.ts`      | `showCalendar()`                                  | Due date calendar               |
+| `modules.ts`       | `showModules()`                                   | Module browser                  |
+| `todo.ts`          | `showTodo()`                                      | Todo items                      |
+| `files.ts`         | `showFiles()`                                     | File browser                    |
+| `download.ts`      | `bulkDownload()`                                  | Bulk file download              |
+| `submit.ts`        | `submitAssignment()`                              | Assignment submission           |
+| `groups.ts`        | `showGroups()`                                    | Group memberships               |
+| `star.ts`          | `starCourse()`, `unstarCourse()`                  | Favorites management            |
+| `profile.ts`       | `showProfile()`                                   | User profile                    |
 
 ### `/lib` - Shared Libraries
 
 Utility modules used across commands:
 
-| File | Primary Exports | LOC | Purpose |
-|------|----------------|-----|---------|
-| `api-client.ts` | `makeCanvasRequest()`, `getCanvasCourses()` | 218 | Canvas API communication |
-| `display.ts` | `Table`, `pickCourse()`, `formatGrade()` | 1097 | Table rendering, course selection |
-| `interactive.ts` | `askQuestion()`, `selectFilesKeyboard()` | 835 | User prompts, file browser |
-| `config.ts` | `loadConfig()`, `saveConfig()` | 137 | Config file management |
-| `config-validator.ts` | `requireConfig()` | 71 | Config validation wrapper |
-| `file-upload.ts` | `uploadSingleFileToCanvas()` | 141 | File upload handling |
+| File                  | Primary Exports                             | LOC  | Purpose                           |
+| --------------------- | ------------------------------------------- | ---- | --------------------------------- |
+| `api-client.ts`       | `makeCanvasRequest()`, `getCanvasCourses()` | 218  | Canvas API communication          |
+| `display.ts`          | `Table`, `pickCourse()`, `formatGrade()`    | 1097 | Table rendering, course selection |
+| `interactive.ts`      | `askQuestion()`, `selectFilesKeyboard()`    | 835  | User prompts, file browser        |
+| `config.ts`           | `loadConfig()`, `saveConfig()`              | 137  | Config file management            |
+| `config-validator.ts` | `requireConfig()`                           | 71   | Config validation wrapper         |
+| `file-upload.ts`      | `uploadSingleFileToCanvas()`                | 141  | File upload handling              |
 
 ### `/types` - Type Definitions
 
 Single file containing all TypeScript interfaces:
 
 **Canvas API Types:**
+
 - `CanvasCourse`, `CanvasAssignment`, `CanvasSubmission`
 - `CanvasEnrollment`, `CanvasGrade`, `CanvasUser`
 - `CanvasFile`, `CanvasFolder`, `CanvasModule`, `CanvasModuleItem`
 - `CanvasAnnouncement`, `CanvasGroup`, `CanvasTodoItem`
 
 **Configuration Types:**
+
 - `CanvasConfig`, `InstanceConfig`
 
 **Command Option Types:**
+
 - `ListCoursesOptions`, `ListAssignmentsOptions`, `ShowGradesOptions`
 - `ShowAnnouncementsOptions`, `ApiQueryOptions`, `ShowTodoOptions`
 - `ShowFilesOptions`, `ShowGroupsOptions`, `ModulesOptions`, `CalendarOptions`
@@ -159,25 +163,27 @@ Single file containing all TypeScript interfaces:
 ### `/tests` - Test Suite
 
 **Test Coverage by Feature:**
+
 - Configuration: `config.test.ts`
 - Display: `display.test.ts`, `display-edge-cases.test.ts`
 - Commands: Individual test files per command
 - E2E: `e2e.test.ts`
 
 **Mocks:**
+
 - `fixtures.ts` - Test data (courses, assignments, users)
 - `mock-canvas-api.ts` - API response mocking
 
 ## File Statistics
 
-| Category | Files | Lines of Code |
-|----------|-------|---------------|
-| Commands | 15 | ~3,500 |
-| Library | 6 | ~2,500 |
-| Types | 1 | ~340 |
-| Tests | 17 | ~2,000 |
-| Config | 5 | ~150 |
-| **Total** | **44** | **~8,500** |
+| Category  | Files  | Lines of Code |
+| --------- | ------ | ------------- |
+| Commands  | 15     | ~3,500        |
+| Library   | 6      | ~2,500        |
+| Types     | 1      | ~340          |
+| Tests     | 17     | ~2,000        |
+| Config    | 5      | ~150          |
+| **Total** | **44** | **~8,500**    |
 
 ## Import Graph
 
@@ -216,9 +222,9 @@ index.ts (Library Export)
 
 ## Entry Points
 
-| Entry Point | Location | Purpose |
-|-------------|----------|---------|
-| CLI Binary | `dist/src/index.js` | Command-line interface |
-| Library | `dist/index.js` | Programmatic API access |
-| Development | `index.ts` | Source library export |
-| Tests | `tests/*.test.ts` | Test runner entry |
+| Entry Point | Location            | Purpose                 |
+| ----------- | ------------------- | ----------------------- |
+| CLI Binary  | `dist/src/index.js` | Command-line interface  |
+| Library     | `dist/index.js`     | Programmatic API access |
+| Development | `index.ts`          | Source library export   |
+| Tests       | `tests/*.test.ts`   | Test runner entry       |

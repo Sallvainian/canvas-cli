@@ -4,18 +4,18 @@
 
 ## Overview
 
-| Category | Technology | Version | Notes |
-|----------|------------|---------|-------|
-| **Language** | TypeScript | 5.9.3 | Strict mode enabled |
-| **Runtime** | Bun | Latest | Also compatible with Node.js >=14.0.0 |
-| **Package Manager** | Bun | - | Using bun.lock |
-| **Build** | TypeScript Compiler (tsc) | - | ES2022 target |
-| **CLI Framework** | Commander.js | 14.0.2 | Command parsing and help generation |
-| **Terminal Styling** | Chalk | 5.6.2 | Colorized output |
-| **Testing** | Bun Test | Built-in | Native Bun test runner |
-| **Linting** | Oxlint | 1.34.0 | Fast Rust-based linter |
-| **Formatting** | Oxfmt | 0.19.0 | Rust-based formatter |
-| **Git Hooks** | Husky | 9.1.7 | Pre-commit hooks |
+| Category             | Technology                | Version  | Notes                                 |
+| -------------------- | ------------------------- | -------- | ------------------------------------- |
+| **Language**         | TypeScript                | 5.9.3    | Strict mode enabled                   |
+| **Runtime**          | Bun                       | Latest   | Also compatible with Node.js >=14.0.0 |
+| **Package Manager**  | Bun                       | -        | Using bun.lock                        |
+| **Build**            | TypeScript Compiler (tsc) | -        | ES2022 target                         |
+| **CLI Framework**    | Commander.js              | 14.0.2   | Command parsing and help generation   |
+| **Terminal Styling** | Chalk                     | 5.6.2    | Colorized output                      |
+| **Testing**          | Bun Test                  | Built-in | Native Bun test runner                |
+| **Linting**          | Oxlint                    | 1.34.0   | Fast Rust-based linter                |
+| **Formatting**       | Oxfmt                     | 0.19.0   | Rust-based formatter                  |
+| **Git Hooks**        | Husky                     | 9.1.7    | Pre-commit hooks                      |
 
 ## TypeScript Configuration
 
@@ -24,6 +24,7 @@
 **Strict Mode:** Fully enabled
 
 ### Strict Type Checking Options
+
 - `strict: true`
 - `noImplicitAny: true`
 - `strictNullChecks: true`
@@ -39,6 +40,7 @@
 - `noUncheckedIndexedAccess: true`
 
 ### Compilation Includes
+
 ```
 src/**/*
 lib/**/*
@@ -48,6 +50,7 @@ index.ts
 ```
 
 ### Output
+
 - **Directory:** `./dist`
 - **Declaration files:** Yes (.d.ts)
 - **Source maps:** Yes
@@ -56,38 +59,42 @@ index.ts
 ## Dependencies
 
 ### Production Dependencies
-| Package | Version | Purpose |
-|---------|---------|---------|
-| chalk | ^5.6.2 | Terminal string styling |
-| commander | ^14.0.2 | CLI argument parsing |
+
+| Package   | Version | Purpose                 |
+| --------- | ------- | ----------------------- |
+| chalk     | ^5.6.2  | Terminal string styling |
+| commander | ^14.0.2 | CLI argument parsing    |
 
 ### Development Dependencies
-| Package | Version | Purpose |
-|---------|---------|---------|
-| @types/bun | ^1.3.5 | Bun type definitions |
+
+| Package     | Version | Purpose                  |
+| ----------- | ------- | ------------------------ |
+| @types/bun  | ^1.3.5  | Bun type definitions     |
 | @types/node | ^25.0.3 | Node.js type definitions |
-| husky | ^9.1.7 | Git hooks |
-| oxfmt | ^0.19.0 | Code formatting |
-| oxlint | ^1.34.0 | Linting |
-| typescript | ^5.9.3 | TypeScript compiler |
+| husky       | ^9.1.7  | Git hooks                |
+| oxfmt       | ^0.19.0 | Code formatting          |
+| oxlint      | ^1.34.0 | Linting                  |
+| typescript  | ^5.9.3  | TypeScript compiler      |
 
 ## CI/CD Pipelines
 
 ### GitHub Actions Workflows
 
-| Workflow | Trigger | Purpose |
-|----------|---------|---------|
-| `tests.yml` | Push/PR to main | Run tests and build on Ubuntu & Windows |
-| `npm-publish.yml` | Release created | Publish to npm with provenance |
-| `lint-format.yml` | - | Code quality checks |
-| `codeql.yml` | - | Security analysis |
+| Workflow          | Trigger         | Purpose                                 |
+| ----------------- | --------------- | --------------------------------------- |
+| `tests.yml`       | Push/PR to main | Run tests and build on Ubuntu & Windows |
+| `npm-publish.yml` | Release created | Publish to npm with provenance          |
+| `lint-format.yml` | -               | Code quality checks                     |
+| `codeql.yml`      | -               | Security analysis                       |
 
 ### Test Matrix
+
 - **OS:** Ubuntu Latest, Windows Latest
 - **Runtime:** Bun (latest)
 - **Fail-fast:** Disabled (runs all matrix combinations)
 
 ### Publishing
+
 - **Registry:** npm (registry.npmjs.org)
 - **Authentication:** OIDC trusted publishing (provenance)
 - **Trigger:** GitHub Release creation
@@ -160,5 +167,6 @@ index.ts
 ```
 
 Two command names available after global install:
+
 - `canvas` (short form)
 - `canvaslms-cli` (full name)

@@ -7,6 +7,7 @@
 Canvas-CLI is a modern command-line interface for Canvas LMS built with TypeScript and Bun. It provides 15 commands for managing courses, assignments, grades, files, and more through the Canvas REST API.
 
 **Key Characteristics:**
+
 - **Architecture Pattern:** Command-based CLI with shared library utilities
 - **Language:** TypeScript (ES2022, strict mode)
 - **Runtime:** Bun (Node.js >=14.0.0 compatible)
@@ -93,6 +94,7 @@ program.command("list").action(requireConfig(listCourses));
 ```
 
 **Key Patterns:**
+
 - Commands protected by `requireConfig()` wrapper
 - Multiple aliases per command (e.g., `list`, `courses`, `course`)
 - Consistent option naming (`-a` for all, `-v` for verbose)
@@ -118,6 +120,7 @@ async function getCanvasCourse(courseName: string, rl: readline.Interface): Prom
 ```
 
 **Features:**
+
 - Generic HTTP method support (GET, POST, PUT, DELETE)
 - Query parameter handling
 - File upload body support (from file path with `@filename`)
@@ -140,6 +143,7 @@ interface CanvasConfig {
 ```
 
 **Functions:**
+
 - `loadConfig()` - Load and validate configuration
 - `saveConfig()` - Save configuration to disk
 - `readConfig()` - Read raw configuration
@@ -162,6 +166,7 @@ class Table {
 ```
 
 **Features:**
+
 - Adaptive column widths
 - Flex-based layout system
 - Color-coded values
@@ -188,6 +193,7 @@ function selectFilesKeyboard(
 ```
 
 **File Browser Features:**
+
 - Keyboard navigation (arrow keys, space, enter)
 - Multi-file selection
 - File type icons
@@ -214,6 +220,7 @@ async function submitAssignmentWithFiles(
 ```
 
 **Upload Process:**
+
 1. Get upload URL from Canvas API
 2. POST file with FormData to upload URL
 3. Retrieve file ID from response
@@ -221,29 +228,30 @@ async function submitAssignmentWithFiles(
 
 ### Command Implementations
 
-| Command | File | Description |
-|---------|------|-------------|
-| `list` | `list.ts` | List enrolled/starred courses |
-| `config` | `config.ts` | Configuration management (setup, edit, show) |
-| `assignments` | `assignments.ts` | List assignments with filters |
-| `grades` | `grades.ts` | View grades summary and detailed breakdown |
-| `gpa` | `gpa.ts` | GPA calculator (4.0 scale) and what-if grades |
-| `announcements` | `announcements.ts` | View course announcements |
-| `calendar` | `calendar.ts` | View upcoming due dates |
-| `modules` | `modules.ts` | Browse course modules/content |
-| `todo` | `todo.ts` | View pending todo items |
-| `files` | `files.ts` | Browse and download course files |
-| `download` | `download.ts` | Bulk download all course files |
-| `submit` | `submit.ts` | Submit files to assignments |
-| `groups` | `groups.ts` | View group memberships |
-| `star` | `star.ts` | Star/unstar courses |
-| `profile` | `profile.ts` | Display user profile |
+| Command         | File               | Description                                   |
+| --------------- | ------------------ | --------------------------------------------- |
+| `list`          | `list.ts`          | List enrolled/starred courses                 |
+| `config`        | `config.ts`        | Configuration management (setup, edit, show)  |
+| `assignments`   | `assignments.ts`   | List assignments with filters                 |
+| `grades`        | `grades.ts`        | View grades summary and detailed breakdown    |
+| `gpa`           | `gpa.ts`           | GPA calculator (4.0 scale) and what-if grades |
+| `announcements` | `announcements.ts` | View course announcements                     |
+| `calendar`      | `calendar.ts`      | View upcoming due dates                       |
+| `modules`       | `modules.ts`       | Browse course modules/content                 |
+| `todo`          | `todo.ts`          | View pending todo items                       |
+| `files`         | `files.ts`         | Browse and download course files              |
+| `download`      | `download.ts`      | Bulk download all course files                |
+| `submit`        | `submit.ts`        | Submit files to assignments                   |
+| `groups`        | `groups.ts`        | View group memberships                        |
+| `star`          | `star.ts`          | Star/unstar courses                           |
+| `profile`       | `profile.ts`       | Display user profile                          |
 
 ### Type Definitions
 
 Located in `types/index.ts`, providing TypeScript interfaces for:
 
 **Canvas API Types:**
+
 - `CanvasCourse` - Course data with enrollment info
 - `CanvasAssignment` - Assignment with submission types
 - `CanvasSubmission` - Submission status and grades
@@ -254,6 +262,7 @@ Located in `types/index.ts`, providing TypeScript interfaces for:
 - `CanvasGroup` - Group membership
 
 **Command Option Types:**
+
 - `ListCoursesOptions`
 - `ListAssignmentsOptions`
 - `ShowGradesOptions`
@@ -357,22 +366,22 @@ tests/
 
 ### Test Coverage
 
-| Test File | Coverage Area |
-|-----------|--------------|
-| `list.test.ts` | Course listing |
-| `grades.test.ts` | Grade display |
-| `config.test.ts` | Configuration management |
-| `display.test.ts` | Table rendering |
-| `display-edge-cases.test.ts` | Edge cases for display |
-| `submit.test.ts` | Assignment submission |
-| `files.test.ts` | File operations |
-| `calendar.test.ts` | Calendar/due dates |
-| `modules.test.ts` | Module browsing |
-| `announcements.test.ts` | Announcements |
-| `profile.test.ts` | User profile |
-| `groups.test.ts` | Group memberships |
-| `todo.test.ts` | Todo items |
-| `e2e.test.ts` | End-to-end scenarios |
+| Test File                    | Coverage Area            |
+| ---------------------------- | ------------------------ |
+| `list.test.ts`               | Course listing           |
+| `grades.test.ts`             | Grade display            |
+| `config.test.ts`             | Configuration management |
+| `display.test.ts`            | Table rendering          |
+| `display-edge-cases.test.ts` | Edge cases for display   |
+| `submit.test.ts`             | Assignment submission    |
+| `files.test.ts`              | File operations          |
+| `calendar.test.ts`           | Calendar/due dates       |
+| `modules.test.ts`            | Module browsing          |
+| `announcements.test.ts`      | Announcements            |
+| `profile.test.ts`            | User profile             |
+| `groups.test.ts`             | Group memberships        |
+| `todo.test.ts`               | Todo items               |
+| `e2e.test.ts`                | End-to-end scenarios     |
 
 ### Testing Commands
 
@@ -410,12 +419,12 @@ while (prevText !== text) {
 
 ### API Error Mapping
 
-| HTTP Status | Error Message |
-|-------------|--------------|
-| 401 | "Unauthorized. Please check your API token" |
-| 403 | "Access denied. You don't have permission" |
-| 404 | "Resource not found" |
-| Other | "HTTP {status}: {message}" |
+| HTTP Status | Error Message                               |
+| ----------- | ------------------------------------------- |
+| 401         | "Unauthorized. Please check your API token" |
+| 403         | "Access denied. You don't have permission"  |
+| 404         | "Resource not found"                        |
+| Other       | "HTTP {status}: {message}"                  |
 
 ### Upload Error Handling
 

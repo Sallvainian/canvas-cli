@@ -36,6 +36,7 @@ canvas config setup
 ```
 
 This creates `~/.canvaslms-cli-config.json` with:
+
 - `domain` - Your Canvas instance (e.g., `school.instructure.com`)
 - `token` - API bearer token from Canvas settings
 - `tableTruncate` - Display mode preference
@@ -85,6 +86,7 @@ bun run build  # TypeScript compiler validates types
 ### Pre-commit Hooks
 
 The project uses Husky for git hooks:
+
 - **pre-commit:** Runs linting and formatting checks
 
 ## Project Structure
@@ -267,11 +269,11 @@ export const testCourse = {
 
 The `makeCanvasRequest` function handles common HTTP errors:
 
-| Status | Error Message |
-|--------|---------------|
-| 401 | "Unauthorized. Please check your API token" |
-| 403 | "Access denied. You don't have permission" |
-| 404 | "Resource not found" |
+| Status | Error Message                               |
+| ------ | ------------------------------------------- |
+| 401    | "Unauthorized. Please check your API token" |
+| 403    | "Access denied. You don't have permission"  |
+| 404    | "Resource not found"                        |
 
 ### User Errors
 
@@ -310,12 +312,12 @@ bun run scripts/bump-version.ts [major|minor|patch]
 
 ### GitHub Actions Workflows
 
-| Workflow | Trigger | Purpose |
-|----------|---------|---------|
-| `tests.yml` | Push/PR to main | Run tests on Ubuntu & Windows |
+| Workflow          | Trigger         | Purpose                        |
+| ----------------- | --------------- | ------------------------------ |
+| `tests.yml`       | Push/PR to main | Run tests on Ubuntu & Windows  |
 | `npm-publish.yml` | Release created | Publish to npm with provenance |
-| `lint-format.yml` | Push/PR | Code quality checks |
-| `codeql.yml` | Scheduled | Security analysis |
+| `lint-format.yml` | Push/PR         | Code quality checks            |
+| `codeql.yml`      | Scheduled       | Security analysis              |
 
 ### Test Matrix
 
@@ -359,22 +361,26 @@ node --trace-gc dist/src/index.js list
 ### Common Issues
 
 **"Config not found" error:**
+
 ```bash
 canvas config setup
 ```
 
 **"Unauthorized" error:**
+
 - Verify API token in Canvas settings
 - Regenerate token if expired
 - Check token scopes
 
 **Build errors:**
+
 ```bash
 # Clean rebuild
 rm -rf dist && bun run build
 ```
 
 **Test failures:**
+
 ```bash
 # Run specific test with verbose output
 bun test tests/failing.test.ts --verbose
