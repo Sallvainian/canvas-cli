@@ -1,0 +1,127 @@
+{
+  "workflow_version": "1.2.0",
+  "timestamps": {
+    "started": "2026-01-27T20:15:00Z",
+    "last_updated": "2026-01-27T21:45:00Z",
+    "completed": "2026-01-27T21:45:00Z"
+  },
+  "mode": "initial_scan",
+  "scan_level": "exhaustive",
+  "project_root": "/Users/sallvain/Projects/Canvas-CLI",
+  "output_folder": "/Users/sallvain/Projects/Canvas-CLI/docs",
+  "completed_steps": [
+    {
+      "step": "step_1",
+      "status": "completed",
+      "timestamp": "2026-01-27T20:25:00Z",
+      "summary": "Classified as monolith with 1 part, CLI type, TypeScript/Bun"
+    },
+    {
+      "step": "step_2",
+      "status": "completed",
+      "timestamp": "2026-01-27T20:30:00Z",
+      "summary": "Discovered existing documentation: README.md, CHANGELOG.md, scripts/README.md"
+    },
+    {
+      "step": "step_3",
+      "status": "completed",
+      "timestamp": "2026-01-27T20:35:00Z",
+      "summary": "Analyzed technology stack: TypeScript 5.9.3, Bun, Commander.js 14, Chalk 5.6.2"
+    },
+    {
+      "step": "step_4",
+      "status": "completed",
+      "timestamp": "2026-01-27T21:00:00Z",
+      "summary": "Exhaustive source code analysis - read all 44 source files in lib/, commands/, types/"
+    },
+    {
+      "step": "step_5",
+      "status": "completed",
+      "timestamp": "2026-01-27T21:15:00Z",
+      "summary": "Generated source-tree-analysis.md with directory structure and import graph"
+    },
+    {
+      "step": "step_6",
+      "status": "completed",
+      "timestamp": "2026-01-27T21:20:00Z",
+      "summary": "Extracted development and operational information"
+    },
+    {
+      "step": "step_7",
+      "status": "skipped",
+      "timestamp": "2026-01-27T21:20:00Z",
+      "summary": "N/A - Single part monolith project"
+    },
+    {
+      "step": "step_8",
+      "status": "completed",
+      "timestamp": "2026-01-27T21:30:00Z",
+      "summary": "Generated architecture.md with comprehensive system documentation"
+    },
+    {
+      "step": "step_9",
+      "status": "completed",
+      "timestamp": "2026-01-27T21:40:00Z",
+      "summary": "Generated supporting documentation: technology-stack.md, development-guide.md"
+    },
+    {
+      "step": "step_10",
+      "status": "completed",
+      "timestamp": "2026-01-27T21:45:00Z",
+      "summary": "Generated index.md master navigation index"
+    },
+    {
+      "step": "step_11",
+      "status": "completed",
+      "timestamp": "2026-01-27T21:45:00Z",
+      "summary": "Validated all documentation files exist and are consistent"
+    },
+    {
+      "step": "step_12",
+      "status": "completed",
+      "timestamp": "2026-01-27T21:45:00Z",
+      "summary": "Workflow finalized successfully"
+    }
+  ],
+  "current_step": "completed",
+  "project_types": [
+    {
+      "part_id": "main",
+      "project_type_id": "cli",
+      "display_name": "CLI Tool"
+    }
+  ],
+  "findings": {
+    "project_classification": {
+      "repository_type": "monolith",
+      "parts_count": 1,
+      "primary_language": "TypeScript",
+      "runtime": "Bun",
+      "framework": "Commander.js"
+    },
+    "codebase_stats": {
+      "total_files": 44,
+      "total_loc": 8500,
+      "commands": 15,
+      "library_modules": 6,
+      "test_files": 17
+    },
+    "key_patterns": {
+      "cli_framework": "Commander.js with requireConfig wrapper",
+      "api_communication": "Generic makeCanvasRequest function",
+      "display": "Custom Table class with live resize",
+      "configuration": "JSON file in user home directory"
+    }
+  },
+  "outputs_generated": [
+    "project-scan-report.json",
+    "project-structure.md",
+    "existing-documentation.md",
+    "technology-stack.md",
+    "architecture.md",
+    "source-tree-analysis.md",
+    "development-guide.md",
+    "index.md"
+  ],
+  "resume_instructions": "Scan complete. Use deep_dive mode for focused analysis of specific areas."
+}
